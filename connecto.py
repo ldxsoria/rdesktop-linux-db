@@ -3,10 +3,11 @@ import sqlite3 as sqlite3
 def createDB():
     try:
         conn = sql.connect('rdesktop.db')
-        conn.commit()
-        conn.close()
+        print('Se creo la base de datos')
     except:
         print('Base de datos ya exitente')
+    conn.commit()
+    conn.close()
 
 def createTable():
     try:
@@ -29,4 +30,4 @@ def createTable():
 
 if __name__ == '__main__':
     createDB()
-    createTable()
+    #createTable()
