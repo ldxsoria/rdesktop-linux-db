@@ -1,18 +1,32 @@
-import sqlite3
+import sqlite3 as sqlite3
 
-conexion = sqlite3.connect('rdesktop.db')
-try:
-    conexion.execute("""
-    
-                        create table server(
-                            name  text primary key,
-                            ip text,
-                            username text,
-                            password text
-                        )
-                    """)
+def createDB():
+    try:
+        conn = sql.connect('rdesktop.db')
+        conn.commit()
+        conn.close()
+    except:
+        print('Base de datos ya exitente')
 
-    print("Se creo la tabla server")
-except sqlite3.OperationalError:
-    print("La tabla server ya existe")
-conexion.close()
+def createTable():
+    try:
+        conn = sql.connect('rdesktop.db')
+        cursor = conn.cursor()
+        cursor.execute(
+            """CREATE TABLE servers (
+                name text primary key,
+                ip text,
+                username text,
+                password text
+
+            )"""
+        )
+        conn.commit()
+        conn.close()
+    except:
+        print('Tabla ya exitente')
+
+
+if __name__ == '__main__':
+    createDB()
+    createTable()
