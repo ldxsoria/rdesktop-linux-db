@@ -28,7 +28,7 @@ while opcion != 3:
             dic_equipos[n] = equipo[0]
 
         opcion = int(input('Ingresa el número del equipo a conectar (0 para salir)> '))
-        if opcion != 0:
+        if opcion != 1:
             pass
         else:
             pass
