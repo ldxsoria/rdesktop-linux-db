@@ -9,7 +9,7 @@ class RemoteDesktop:
     _INSERTAR = 'INSERT INTO servers (name,ip,username,password) values (?,?,?,?)'
     _ACTUALIZAR = ""
     _ELIMINAR = ""
-    
+
     _CONECTAR = 'rdesktop %s -u %s -p %s'
 
     @classmethod
@@ -46,5 +46,5 @@ if __name__ == '__main__':
     x = RemoteDesktop.selecionar()
     for i in x:
         print(i)
-
+    RemoteDesktop.filtro_solo_pk()
     
