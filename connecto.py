@@ -1,11 +1,7 @@
-import sqlite3 as sqlite3
+import sqlite3 as sql
 
 def createDB():
-    try:
-        conn = sql.connect('rdesktop.db')
-        print('Se creo la base de datos')
-    except:
-        print('Base de datos ya exitente')
+    conn = sql.connect('rdesktop.db')
     conn.commit()
     conn.close()
 
@@ -24,10 +20,11 @@ def createTable():
         )
         conn.commit()
         conn.close()
+        print('Tabla creado con exito')
     except:
         print('Tabla ya exitente')
 
 
 if __name__ == '__main__':
-    createDB()
-    #createTable()
+    #createDB()
+    createTable()
