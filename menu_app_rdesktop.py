@@ -1,6 +1,6 @@
 import controller
 from ServersDao import ServersDao
-from Server import Server
+from Servers import Servers
 import logging as log
 import os
 
@@ -12,9 +12,10 @@ os.system('clear')
 while opcion != 3:
     #Este sera el menu principal
     print('Opciones')
-    print('1) Listar equipos')
-    print('2) Agregar equipos')
-    print('3) Salir')
+    print('1) Listar conexion')
+    print('2) Agregar conexion')
+    print('3) Actualzar conexion')
+    print('4) Salir')
     opcion = int(input('Ingresa tu opción (1-3) > '))
 
     #Este sera el menu de -> Listar equipos
@@ -25,7 +26,7 @@ while opcion != 3:
         n = 0 # llave del diccionario
         print('Los equipos registrados hasta ahora son:')
 
-        equipos = RemoteDesktop.selecionar()
+        equipos = ServersDao.selecionar()
         for equipo in equipos:
             n += 1
             print(f'{n}. {equipo[0]}')
@@ -36,15 +37,25 @@ while opcion != 3:
             pass
         else:
             pass
+        os.system('clear')
+
     elif opcion == 2:
+        os.system('clear')
         name = input('Ingresa el nombre del equipo >')
         ip = input(f'Ingresa la IP de {name} >')
         username = input('Ingresa el usuario > ')
         password = input('Ingresa la constraseña >')
-        newRegistro = Server(name, ip, username, password)
-        RemoteDesktop.intertar(newRegistro)
+        newRegistro = Servers(name, ip, username, password)
+        ServersDao.intertar(newRegistro)
         print('Servidor registrado')
-    else:
+        os.system('clear')
+    elif opcion == 3:
+        os.system('clear')
+        pass
+    elif opcion == 4:
         print('Fin')
+    else:
+        os.system('clear')
+        print('>>>> INGRESA UNA OPCION VALIDA <<<<<<<')
         
 

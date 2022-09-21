@@ -1,6 +1,6 @@
 import os
 import sqlite3
-from Server import Server
+from Servers import Servers
 
 class ServersDao:
     
