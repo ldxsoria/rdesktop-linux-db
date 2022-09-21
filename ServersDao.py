@@ -2,7 +2,7 @@ import os
 import sqlite3
 from Server import Server
 
-class RemoteDesktop:
+class ServersDao:
     
     _SELECIONAR = f'SELECT * FROM servers'
     _INSERTAR = 'INSERT INTO servers (name,ip,username,password) values (?,?,?,?)'

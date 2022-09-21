@@ -1,5 +1,5 @@
 import controller
-from RemoteDesktop import RemoteDesktop
+from ServersDao import ServersDao
 from Server import Server
 import logging as log
 import os

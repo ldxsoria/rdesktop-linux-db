@@ -1,4 +1,4 @@
-class Server:
+class Servers:
 
     def __init__(self,name,ip,username,password):
         self._name = name
