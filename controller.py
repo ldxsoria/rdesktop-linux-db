@@ -2,7 +2,7 @@ import sqlite3 as sql
 
 def createDB():
     try:
-        conn = sql.connect('rdesktop.db')
+        conn = sql.connect('./rdesktop.db')
         conn.commit()
         conn.close()
         print('DB created')
@@ -11,7 +11,7 @@ def createDB():
 
 def createTable():
     try:
-        conn = sql.connect('rdesktop.db')
+        conn = sql.connect('./rdesktop.db')
         cursor = conn.cursor()
         cursor.execute(
             """CREATE TABLE servers (

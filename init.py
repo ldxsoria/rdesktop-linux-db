@@ -4,13 +4,14 @@ from Servers import Servers
 import logging as log
 import os
 
-controller.createDB()
-controller.createTable()
+#controller.createDB()
+#controller.createTable()
 
 opcion = None
 os.system('clear')
 while opcion != 3:
     #Este sera el menu principal
+    print(os.system('pwd'))
     print('Opciones')
     print('1) Listar conexion')
     print('2) Agregar conexion')
@@ -29,8 +30,8 @@ while opcion != 3:
         equipos = ServersDao.selecionar()
         for equipo in equipos:
             n += 1
-            print(f'{n}. {equipo[0]}')
-            dic_equipos[n] = equipo[0]
+            print(f'{n}. {equipo[0]}') #Imprimo la lista de objetos registrados con un numero correlativo
+            dic_equipos[n] = equipo[0] #Aqui 
 
         opcion = int(input('Ingresa el número del equipo a conectar (0 para salir)> '))
         if opcion != 0:
@@ -58,6 +59,7 @@ while opcion != 3:
         ServersDao.intertar(newRegistro)
         print('Servidor registrado')
         os.system('clear')
+
     elif opcion == 3:
         os.system('clear')
         name = input('Ingresa el nombre de la conexion a actualizar >')
@@ -66,6 +68,7 @@ while opcion != 3:
         new_password = input('Ingresa la constraseña >')
         registro = Servers(name,new_ip,new_username,new_password)
         ServersDao.actualizar(registro)
+
     elif opcion == 4:
         print('Bye')
         break

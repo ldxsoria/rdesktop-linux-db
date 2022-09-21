@@ -14,7 +14,7 @@ class ServersDao:
 
     @classmethod
     def selecionar(cls):
-        conn = sqlite3.connect("rdesktop.db")
+        conn = sqlite3.connect("./rdesktop.db")
         resultado = []
         cursor = conn.cursor()
         cursor.execute(cls._SELECIONAR)
@@ -25,7 +25,7 @@ class ServersDao:
 
     @classmethod
     def buscar(cls, servers):
-        conn = sqlite3.connect('rdesktop.db')
+        conn = sqlite3.connect('./rdesktop.db')
         cursor = conn.cursor()
         valores = (servers.name,)
         cursor.execute(cls._BUSCAR,valores)
@@ -36,7 +36,7 @@ class ServersDao:
 
     @classmethod
     def intertar(cls, servers):
-        conn = sqlite3.connect("rdesktop.db")
+        conn = sqlite3.connect("./rdesktop.db")
         cursor = conn.cursor()
         valores = (servers.name, servers.ip, servers.username, servers.password)
         cursor.execute(cls._INSERTAR,valores)
@@ -45,7 +45,7 @@ class ServersDao:
 
     @classmethod
     def actualizar(cls,servers):
-        conn = sqlite3.connect('rdesktop.db')
+        conn = sqlite3.connect('./rdesktop.db')
         cursor = conn.cursor()
         valores = (servers.ip, servers.username, servers.password, servers.name)
         cursor.execute(cls._ACTUALIZAR,valores)
@@ -54,7 +54,7 @@ class ServersDao:
 
     @classmethod
     def eliminar(cls,servers):
-        conn = sqlite3.connect('rdesktop.db')
+        conn = sqlite3.connect('./rdesktop.db')
         cursor = conn.cursor()
         valores = (servers.name,)
         cursor.execute(cls._ELIMINAR,valores)
