@@ -69,7 +69,7 @@ class ServersDao:
         os.system(ejecutar)
 
 if __name__ == '__main__':
-    #server1 = Servers('q','192.6.31.46','temp','P@ssw0rd')
+    server1 = Servers('q','192.6.31.46','temp','P@ssw0rd')
     #server2 = Servers('soporte','172.19.1.24','temp','P@ssw0rd')
     #print(server1)
     #conectar = RemoteDesktop.conectar(server1)

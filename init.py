@@ -35,16 +35,18 @@ while opcion != 3:
         opcion = int(input('Ingresa el número del equipo a conectar (0 para salir)> '))
         if opcion != 0:
             print(dic_equipos)
-            print(dic_equipos[opcion])
+            name = dic_equipos[opcion] #Chat name
             #rdesktop %s -u %s -p %s
-            remote_server = ServersDao.selecionar(dic_equipos[opcion])
+            server = Servers(name=name) #Created object
+            remote_server_db = ServersDao.buscar(server) #Search object by name selected
+            remote_server = Servers(ip=remote_server_db[1],username=remote_server_db[2], password=remote_server_db[3])
+            remote_conn = ServersDao.conectar(remote_server)
             print(remote_server)
             #remote_server = Servers(name=dic_equipos[opcion])
             #conectar = ServersDao.conectar(remote_server)
-            print(conectar)
         else:
             pass
-        #os.system('clear')
+        os.system('clear')
 
     elif opcion == 2:
         #os.system('clear')
