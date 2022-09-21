@@ -34,13 +34,20 @@ while opcion != 3:
 
         opcion = int(input('Ingresa el número del equipo a conectar (0 para salir)> '))
         if opcion != 0:
-            pass
+            print(dic_equipos)
+            print(dic_equipos[opcion])
+            #rdesktop %s -u %s -p %s
+            remote_server = ServersDao.selecionar(dic_equipos[opcion])
+            print(remote_server)
+            #remote_server = Servers(name=dic_equipos[opcion])
+            #conectar = ServersDao.conectar(remote_server)
+            print(conectar)
         else:
             pass
-        os.system('clear')
+        #os.system('clear')
 
     elif opcion == 2:
-        os.system('clear')
+        #os.system('clear')
         name = input('Ingresa el nombre del equipo >')
         ip = input(f'Ingresa la IP de {name} >')
         username = input('Ingresa el usuario > ')
@@ -58,7 +65,8 @@ while opcion != 3:
         registro = Servers(name,new_ip,new_username,new_password)
         ServersDao.actualizar(registro)
     elif opcion == 4:
-        print('Fin')
+        print('Bye')
+        break
     else:
         os.system('clear')
         print('>>>> INGRESA UNA OPCION VALIDA <<<<<<<')

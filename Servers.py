@@ -46,5 +46,5 @@ class Servers:
 
 
 if __name__ == '__main__':
-    server1 = Server('wten','192.6.31.46','soporte@maristas.local','C0mpaq')
+    server1 = Server('wten','192.6.31.46','temp','P@ssw0rd')
     print(server1)
