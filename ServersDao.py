@@ -6,7 +6,7 @@ class ServersDao:
     
     _SELECIONAR = f'SELECT * FROM servers'
     _INSERTAR = 'INSERT INTO servers (name,ip,username,password) values (?,?,?,?)'
-    _ACTUALIZAR = ""
+    _ACTUALIZAR = "UPDATE servers SET ip=?, username=?, password=? WHERE name=?"
     _ELIMINAR = ""
 
     _CONECTAR = 'rdesktop %s -u %s -p %s'
@@ -23,29 +23,35 @@ class ServersDao:
         return registros
 
     @classmethod
-    def intertar(cls, server):
+    def intertar(cls, servers):
         conn = sqlite3.connect("rdesktop.db")
         cursor = conn.cursor()
         valores = (server.name, server.ip, server.username, server.password)
         cursor.execute(cls._INSERTAR,valores)
         conn.commit()
         conn.close()
+
+    @classmethod
+    def actualizar(cls,servers):
+        conn = sqlite3.connect('rdesktop.db')
+        cursor = conn.cursor()
+        valores = (servers.ip, servers.username, servers.password, servers.name)
+        cursor.execute(cls._ACTUALIZAR,valores)
+        conn.commit()
+        conn.close()
         
     @classmethod
-    def conectar(cls, server):
+    def conectar(cls, servers):
         valores = (server.ip, server.username, server.password)
         ejecutar = (cls._CONECTAR %valores)
         os.system(ejecutar)
 
 if __name__ == '__main__':
-    server1 = Server('wten','192.6.31.46','soporte@maristas.local','C0mpaq')
-    server2 = Server('soporte','172.19.1.24','soporte@maristas.local','C0mpaq')
+    server1 = Servers('temp','192.6.31.46','soporte@maristas.local','C0mpaq')
+    server2 = Servers('soporte','172.19.1.24','soporte@maristas.local','C0mpaq')
     #print(server1)
     #conectar = RemoteDesktop.conectar(server1)
     #print(conectar)
     #registrar = RemoteDesktop.intertar(server2)
-    x = RemoteDesktop.selecionar()
-    for i in x:
-        print(i)
-    RemoteDesktop.filtro_solo_pk()
+    actualizar = ServersDao.actualizar(server1)
     

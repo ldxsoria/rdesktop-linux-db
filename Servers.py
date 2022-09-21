@@ -1,6 +1,6 @@
 class Servers:
 
-    def __init__(self,name,ip,username,password):
+    def __init__(self,name=None,ip=None,username=None,password=None):
         self._name = name
         self._ip = ip
         self._username = username

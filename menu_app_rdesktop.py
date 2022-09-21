@@ -51,7 +51,12 @@ while opcion != 3:
         os.system('clear')
     elif opcion == 3:
         os.system('clear')
-        pass
+        name = input('Ingresa el nombre de la conexion a actualizar >')
+        new_ip = input(f'Ingresa la IP de {name} >')
+        new_username = input('Ingresa el usuario > ')
+        new_password = input('Ingresa la constraseña >')
+        registro = Servers(name,new_ip,new_username,new_password)
+        ServersDao.actualizar(registro)
     elif opcion == 4:
         print('Fin')
     else:
