@@ -9,7 +9,7 @@ while opcion != 3:
     #Este sera el menu principal
     print('Opciones')
     print('1) Listar equipos')
-    print('2) Configuraciones')
+    print('2) Agregar equipos')
     print('3) Salir')
     opcion = int(input('Ingresa tu opción (1-3) > '))
 
@@ -28,9 +28,19 @@ while opcion != 3:
             dic_equipos[n] = equipo[0]
 
         opcion = int(input('Ingresa el número del equipo a conectar (0 para salir)> '))
-        if opcion != 3:
+        if opcion != 0:
             pass
         else:
             pass
+    elif opcion == 2:
+        name = input('Ingresa el nombre del equipo >')
+        ip = input(f'Ingresa la IP de {name} >')
+        username = input('Ingresa el usuario > ')
+        password = input('Ingresa la constraseña >')
+        newRegistro = Server(name, ip, username, password)
+        RemoteDesktop.intertar(newRegistro)
+        print('Servidor registrado')
+    else:
+        print('Fin')
         
 
