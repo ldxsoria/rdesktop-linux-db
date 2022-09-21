@@ -1,7 +1,11 @@
+import controller
 from RemoteDesktop import RemoteDesktop
 from Server import Server
 import logging as log
 import os
+
+controller.createDB()
+controller.createTable()
 
 opcion = None
 os.system('clear')

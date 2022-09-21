@@ -1,9 +1,13 @@
 import sqlite3 as sql
 
 def createDB():
-    conn = sql.connect('rdesktop.db')
-    conn.commit()
-    conn.close()
+    try:
+        conn = sql.connect('rdesktop.db')
+        conn.commit()
+        conn.close()
+        print('DB created')
+    except:
+        pass
 
 def createTable():
     try:

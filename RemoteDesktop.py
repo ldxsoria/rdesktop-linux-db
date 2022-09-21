@@ -3,8 +3,7 @@ import sqlite3
 from Server import Server
 
 class RemoteDesktop:
-    _DB = sqlite3.connect("rdesktop.db")
-
+    
     _SELECIONAR = f'SELECT * FROM servers'
     _INSERTAR = 'INSERT INTO servers (name,ip,username,password) values (?,?,?,?)'
     _ACTUALIZAR = ""
@@ -14,21 +13,23 @@ class RemoteDesktop:
 
     @classmethod
     def selecionar(cls):
+        conn = sqlite3.connect("rdesktop.db")
         resultado = []
-        cursor = cls._DB.cursor()
+        cursor = conn.cursor()
         cursor.execute(cls._SELECIONAR)
         registros = cursor.fetchall()
-        cls._DB.commit()
-        cls._DB.close()
+        conn.commit()
+        conn.close()
         return registros
 
     @classmethod
     def intertar(cls, server):
-        cursor = cls._DB.cursor()
+        conn = sqlite3.connect("rdesktop.db")
+        cursor = conn.cursor()
         valores = (server.name, server.ip, server.username, server.password)
         cursor.execute(cls._INSERTAR,valores)
-        cls._DB.commit()
-        cls._DB.close()
+        conn.commit()
+        conn.close()
         
     @classmethod
     def conectar(cls, server):
