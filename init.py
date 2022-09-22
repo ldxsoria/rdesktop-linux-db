@@ -21,11 +21,13 @@ def equipos_registrados():
         dic_registros[n] = equipo[0] #Aqui
     return dic_registros
 
+def datos_by_name(name):
+    server = Servers(name=name) #Created object
+    return ServersDao.buscar(server)
 
 def ejecutar_conexion(opcion):
     name = dic_equipos[opcion] #Chat name
-    server = Servers(name=name) #Created object
-    remote_server_db = ServersDao.buscar(server) #Search object by name selected
+    remote_server_db = datos_by_name(name) #Search object by name selected
     remote_server = Servers(ip=remote_server_db[1],username=remote_server_db[2], password=remote_server_db[3])
     remote_conn = ServersDao.conectar(remote_server)
     #print(remote_server)
