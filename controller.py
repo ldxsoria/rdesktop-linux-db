@@ -30,5 +30,5 @@ def createTable(path):
 
 
 if __name__ == '__main__':
-    #createDB()
-    createTable()
+    #createDB('.')
+    createTable('.')

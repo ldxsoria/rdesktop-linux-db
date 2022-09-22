@@ -81,4 +81,3 @@ while opcion != 3:
         os.system('clear')
         print('>>>> INGRESA UNA OPCION VALIDA <<<<<<<')
         
-
