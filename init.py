@@ -11,10 +11,12 @@ _PATH = ServersDao.PATH
 controller.createDB(_PATH)
 controller.createTable(_PATH)
 
+def equipos_registrados():
+    pass
 
 opcion = None
 os.system('clear')
-while opcion != 3:
+while opcion != 4:
     #Este sera el menu principal
     
     print('RDESKTOP DATABASE\nOpciones:')
