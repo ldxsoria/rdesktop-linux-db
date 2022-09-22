@@ -1,17 +1,17 @@
 import sqlite3 as sql
 
-def createDB():
+def createDB(path):
     try:
-        conn = sql.connect('./rdesktop.db')
+        conn = sql.connect(f'{path}/rdesktop.db')
         conn.commit()
         conn.close()
         print('DB created')
     except:
         pass
 
-def createTable():
+def createTable(path):
     try:
-        conn = sql.connect('./rdesktop.db')
+        conn = sql.connect(f'{path}/rdesktop.db')
         cursor = conn.cursor()
         cursor.execute(
             """CREATE TABLE servers (

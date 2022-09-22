@@ -3,19 +3,24 @@ from ServersDao import ServersDao
 from Servers import Servers
 import logging as log
 import os
+import pathlib
 
-#controller.createDB()
-#controller.createTable()
+_PATH = ServersDao.PATH
+#_PATH = pathlib.Path(__file__).parent.resolve()
+
+controller.createDB(_PATH)
+controller.createTable(_PATH)
+
 
 opcion = None
 os.system('clear')
 while opcion != 3:
     #Este sera el menu principal
-    print(os.system('pwd'))
-    print('Opciones')
-    print('1) Listar conexion')
-    print('2) Agregar conexion')
-    print('3) Actualzar conexion')
+    
+    print('RDESKTOP DATABASE\nOpciones:')
+    print('1) Conectarme a un equipo')
+    print('2) Agregar una nueva conexion')
+    print('3) Actualizar o eliminar conexiones existentes')
     print('4) Salir')
     opcion = int(input('Ingresa tu opción (1-3) > '))
 
